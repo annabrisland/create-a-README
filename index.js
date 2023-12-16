@@ -1,4 +1,5 @@
 const fs = require("fs");
+const util = require('util');
 const path = require("path");
 const inquirer = require("inquirer");
 const generateMarkdown = require("./utils/generateMarkdown");
@@ -26,8 +27,8 @@ const [
   repoQuestions,
 ] = questions;
 
-// // function to write README file
-// function writeToFile(fileName, data) {}
+// function to write README file
+const writeToFile = util.promisify(fs.writeFile);
 
 // function to initialize program
 const init = () => 
@@ -75,4 +76,5 @@ inquirer.prompt([
 ]);
 
 // function call to initialize program
-init();
+init()
+.then((data) => console.log(`${data.title}`));
