@@ -1,7 +1,8 @@
-# f
+# Create a README
   ![License](https://img.shields.io/badge/License-MIT-yellow.svg)
 
-  f
+  This is a command-line application that dynamically generates a README.md from a user's input.
+
   ## Table of Contents
   * [Installation](#installation)
   * [Usage](#usage)
@@ -10,14 +11,20 @@
   * [Questions](#questions)
   
   ## Installation
-  f
+  To install necessary dependencies, run the following command:
+  ```
+  npm install
+  ```
   ## Usage
-  f
+  To use this application, run the following command:
+  ```
+  node index.js
+  ```
   ## Contributing
-  f
+  N/A
   ## Tests
-  f
+  N/A
   ## Questions
-  Direct any questions to [f](https://github.com/f) or email at f.
+  Direct any questions to [annabrisland](https://github.com/annabrisland) or email at anna@mail.com.
   ## License
 This project is licensed under the MIT license.
