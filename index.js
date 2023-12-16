@@ -7,24 +7,26 @@ const generateMarkdown = require("./utils/generateMarkdown");
 // array of questions for user
 const questions = [
   "What is the title of your project?",
-  "Provide a table of contents.",
+  "Provide a brief description of your project.",
   "What are the installation instructions?",
   "What are the usage instructions?",
   "What is the license for this repo?",
-  "Who are the contributors?",
+  "What are the contribution guidelines?",
   "What are the tests for this repo?",
-  "What are the questions for this repo?",
+  "What is your GitHub username?",
+  "What is your email?"
 ];
 
 const [
   title,
-  contents,
+  description,
   installation,
   usage,
   license,
-  contributors,
+  contributing,
   tests,
-  repoQuestions,
+  username,
+  email
 ] = questions;
 
 // function to write README file
@@ -40,8 +42,8 @@ inquirer.prompt([
     },
     {
         type: "input",
-        name: "contents",
-        message: contents
+        name: "description",
+        message: description
     },
     {
         type: "input",
@@ -54,14 +56,15 @@ inquirer.prompt([
         message: usage
     },
     {
-        type: "input",
+        type: "list",
         name: "license",
-        message: license
+        message: license,
+        choices: ["None", "MIT", "APACHE 2.0", "GPL 3.0", "BSD 3"]
     },
     {
         type: "input",
         name: "contributing",
-        message: contributors
+        message: contributing
     },
     {
         type: "input",
@@ -70,11 +73,16 @@ inquirer.prompt([
     },
     {
         type: "input",
-        name: "questions",
-        message: repoQuestions
+        name: "username",
+        message: username
+    },
+    {
+        type: "input",
+        name: "email",
+        message: email
     },
 ]);
 
 // function call to initialize program
 init()
-.then((data) => console.log(`${data.title}`));
+.then((data) => writeToFile("README.md", generateMarkdown(data)));
