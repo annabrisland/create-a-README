@@ -1,6 +1,5 @@
 const fs = require("fs");
 const util = require('util');
-const path = require("path");
 const inquirer = require("inquirer");
 const generateMarkdown = require("./utils/generateMarkdown");
 
@@ -85,4 +84,5 @@ inquirer.prompt([
 
 // function call to initialize program
 init()
-.then((data) => writeToFile("README.md", generateMarkdown(data)));
+.then((data) => writeToFile("README.md", generateMarkdown(data)))
+.catch((err) => console.error(err));

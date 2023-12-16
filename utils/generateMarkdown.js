@@ -13,7 +13,7 @@ function generateMarkdown(data) {
     data.license != "None"
       ? `![License](${urls.get(data.license)})`
       : ""
-  }
+  }\n
   ${data.description}
   ## Table of Contents
   * [Installation](#installation)
